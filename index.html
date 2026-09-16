@@ -1,0 +1,149 @@
+ഇതാ നിങ്ങൾ ആവശ്യപ്പെട്ട ഡിസ്‌ക്ലൈമർ പോപ്പ്-അപ്പും (Disclaimer Modal), അടിയിൽ "Developed by Vishnu Aranmula" എന്ന ഫൂട്ടറും ഉൾപ്പെടുത്തിയ സമ്പൂർണ്ണ index.html കോഡ്:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pookie cut</title>
+  <link rel="icon" type="image/png" href="static/images/bird.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Disclaimer Modal Styles */
+    .disclaimer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .disclaimer-card {
+      background: #1e293b;
+      border: 2px solid #ff007f;
+      border-radius: 20px;
+      padding: 25px 30px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
+      animation: popup 0.3s ease-out;
+    }
+
+    .disclaimer-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ff007f;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .disclaimer-text {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .disclaimer-btn {
+      background: linear-gradient(135deg, #ff007f, #7928ca);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .disclaimer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 127, 0.4);
+    }
+
+    /* Footer Developer Tag */
+    .developer-tag {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    .developer-tag span {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Disclaimer Modal -->
+  <div id="disclaimerModal" class="disclaimer-overlay">
+    <div class="disclaimer-card">
+      <h2 class="disclaimer-title">Disclaimer</h2>
+      <p class="disclaimer-text">
+        ഈ ഗെയിം തികച്ചും വിനോദ ആവശ്യങ്ങൾക്കായി മാത്രം നിർമ്മിച്ചിട്ടുള്ളതാണ്. നിലവിൽ സോഷ്യൽ മീഡിയയിൽ ട്രെൻഡിംഗിലുള്ള മീമുകളെ ആസ്പദമാക്കിയുള്ള ഒരു തമാശ സറ്റയർ മാത്രമാണിത്. ആരെയും വ്യക്തിപരമായി അധിക്ഷേപിക്കാനോ അപമാനിക്കാനോ ഉദ്ദേശിച്ചിട്ടുള്ളതല്ല. എല്ലാവരും ഇത് ഒരു സ്പോർട്സ്മാൻ സ്പിരിറ്റിൽ മാത്രം സ്വീകരിക്കുക.
+      </p>
+      <button class="disclaimer-btn" onclick="closeDisclaimer()">I Understand & Play</button>
+    </div>
+  </div>
+
+  <div class="game-container">
+    <div class="header">
+      <h1 class="game-title">FLYING POOKIE</h1>
+      <p class="tagline">ഇനി വേണോ വിസ്മയം !</p>
+    </div>
+    
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="500"></canvas>
+      <div class="canvas-glow"></div>
+    </div>
+
+    <div class="controls-hint">
+      <span class="control-key">SPACE</span>
+      <span class="control-text">or</span>
+      <span class="control-key">TAP</span>
+      <span class="control-text">to Jump</span>
+    </div>
+
+    <!-- Developer Mention -->
+    <div class="developer-tag">
+      Developed by <span>vishnu erancheri</span>
+    </div>
+
+    <div id="gameOver">
+      <div class="game-over-content">
+        <div class="game-over-icon">
+          <img src="static/images/bird.png" alt="Bird" />
+        </div>
+        <h2 class="game-over-title">Game Over!</h2>
+        <div class="score-display">
+          <span class="score-label">Total Pookie Cut</span>
+          <span class="score-value" id="finalScore">0</span>
+        </div>
+        <button id="restartBtn">
+          <span class="btn-icon">🔄</span>
+          <span>Cut Again</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function closeDisclaimer() {
+      document.getElementById('disclaimerModal').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+
