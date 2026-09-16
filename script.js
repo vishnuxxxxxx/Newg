@@ -104,7 +104,7 @@ function roundRect(ctx, x, y, width, height, radius) {
 function drawScore() {
   ctx.fillStyle = "#000";
   ctx.font = "20px sans-serif";
-  ctx.fillText("Total Vote Chori: " + score, 10, 30);
+  ctx.fillText("pookie cut 🤪 : " + score, 10, 30);
 }
 
 function update() {
